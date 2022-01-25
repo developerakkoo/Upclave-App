@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcalve</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script defer>
+      window.jQuery = window.$ = require("jquery");
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/electron-tabs/electron-tabs.css"
+    />
+    <link rel="stylesheet" href="node_modules/dist/dragula.css" />
+
+    <style>
+      html {
+        font-family: Roboto;
+      }
+
+      [contenteditable] {
+        border: solid 1px lightgreen;
+        padding: 5px;
+        border-radius: 3px;
+      }
+
+      .add-Button {
+        color: white;
+        width: 40px;
+        height: 40px;
+        border: 2px solid white;
+        border-radius: 10px;
+        background: none;
+        position: absolute;
+        top: 90vh;
+
+      }
+
+      .container{
+        height: 100vh;
+        width: 60px;
+        background-color: #161853;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        z-index: 100;
+      }
+
+      .google-container{
+        position: fixed;
+        top: 8vh;
+       
+      }
+
+      .google-button{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border: 2px solid white;
+        border-radius: 50%;
+        background: none;
+        top: 6vh;
+      }
+
+      .google-button.active{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border: 2px solid rgb(255, 0, 0);
+        border-radius: 50%;
+        background: none;
+        top: 6vh;
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+   <div class="container">
+     <div class="google-container">
+      <button class="google-button active" type="button"></button>
+      <button class="google-button" type="button"></button>
+     </div>
+     <button id="openApplicationSettingButton" class="add-Button"><i class="fa fa-plus" aria-hidden="true"></i> </button>
+   </div>
+     
+        <div>
+
+
+          <div class="etabs-tabgroup ">
+            <div class="etabs-tabs"></div>
+            <div class="etabs-buttons">
+              <button id="backwardButton"> <i class="fa fa-chevron-left" aria-hidden="true"></i> </button>
+              <button id="forwardButton" > <i class="fa fa-chevron-right" aria-hidden="true"></i> </button>
+              <button id="refreshButton"> <i class="fa fa-rotate-right" aria-hidden="true"></i> </button>
+              <button style="border: none;" id="add-tab-button">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+
+              <button id="upgradeButton" style="background: red; width: 150px; border: none;"> 
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade</button>
+
+              
+            </div>
+          </div>
+
+          <div  class="etabs-views">
+         
+
+          </div> 
+
+
+          <div id="pricing-modal" class="w3-modal ">
+            <div class="w3-modal-content w3-animate-top">
+              <header style="background: #292C6D; color: white;" class="w3-container w3-padding-16"> 
+                <span id="modal-close-button"
+                class="w3-button w3-display-topright w3-padding">&times;</span>
+                <h3>Upclave Pricing Plans</h3>
+              </header>
+              <div class="w3-container">
+               
+                <div class="w3-row-padding">
+                
+                <div class="w3-third w3-margin-bottom">
+                  <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+                    <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+                    <li class="w3-padding-16"> Pinterest, Mega</li>
+                    <li class="w3-padding-16"> Slack, AnyDo</li>
+                    <li class="w3-padding-16"> LinkedIn, Evernote</li>
+                    <li class="w3-padding-16"> Discord, Zoom & free Apps.</li>
+                    <li class="w3-padding-16">
+                      <h2 class="w3-wide">49<i class="fa fa-rupee"></i></h2>
+                      <span class="w3-opacity">per month</span>
+                    </li>
+                    <li class="w3-light-grey w3-padding-24">
+                      <button style="background: #F3A229;" class="w3-button w3-padding-large">Upgrade</button>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="w3-third w3-margin-bottom">
+                  
+                  <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+                    <li style="background: #161853; color: white;" class=" w3-xlarge w3-padding-32">Pro</li>
+                    <li class="w3-padding-16"> Github, Codepen</li>
+                    <li class="w3-padding-16"> AWS, Asana, Clickup</li>
+                    <li class="w3-padding-16"> Leadpages, Canva, Fishbowl</li>
+                    <li class="w3-padding-16"> and Basic Plan Apps.</li>
+                    <li class="w3-padding-16">
+                      <h2 class="w3-wide">99<i class="fa fa-rupee"></i></h2>
+                      <span class="w3-opacity">per month</span>
+                    </li>
+                    <li class="w3-light-grey w3-padding-24">
+                      <button style="background: #F3A229;" class="w3-button  w3-padding-large">Upgrade</button>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="w3-third w3-margin-bottom">
+                  <ul class="w3-ul w3-border w3-center w3-hover-shadow">
+                    <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
+                    <li class="w3-padding-16"> All Free Apps</li>
+                    <li class="w3-padding-16"> Some Google Apps</li>
+                    <li class="w3-padding-16"> All Pro Apps</li>
+                    <li class="w3-padding-16"> Microsoft 365</li>
+                    <li class="w3-padding-16">
+                      <h2 class="w3-wide">199<i class="fa fa-rupee"></i></h2>
+                      <span class="w3-opacity">per month</span>
+                    </li>
+                    <li class="w3-light-grey w3-padding-24">
+                      <button style="background: #F3A229;" class="w3-button  w3-padding-large">Upgrade</button>
+                    </li>
+                  </ul>
+                </div>
+                
+                </div>
+                
+              </div>
+          
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const TabGroup = require("electron-tabs");
+      const dragula = require("dragula");
+      const {ipcRenderer} = require('electron');
+      const { webContents } = require('electron')
+
+      const {remote} = require('electron');
+      
+      let mainwindow = remote.getCurrentWindow();
+
+      let historyLength = window.history.length;
+
+      console.log("HISTORY Length: " + historyLength);
+      
+      let pricingModal = document.querySelector('#pricing-modal');
+      let modalCloseHandler = document.querySelector('#modal-close-button');
+      // let searchInput = document.querySelector("#searchInput");
+      let forwardSearch = document.querySelector("#forwardButton");
+      let backwardSearch = document.querySelector("#backwardButton");
+      let refreshButton = document.querySelector("#refreshButton");
+      let upgradeButton = document.querySelector("#upgradeButton");
+      let openApplicationSettingButton = document.querySelector("#openApplicationSettingButton");
+      const AddTabButton = document.getElementById("add-tab-button");
+      
+
+      forwardSearch.addEventListener("click", () => {
+        console.log("Forward Search"+ window.history.length);
+        window.history.forward();
+      })
+   
+
+      backwardSearch.addEventListener("click", () => {
+        console.log("Backward Search"+ window.history.length);
+          window.history.back();
+      })
+
+      refreshButton.addEventListener("click", () =>{
+        console.log("Refresh");
+        remote.getCurrentWindow().reload();
+      })
+
+      modalCloseHandler.addEventListener("click", () =>{
+        pricingModal.style.display = "none";
+
+      })
+
+      upgradeButton.addEventListener("click", () =>{
+        console.log("Upgrade");
+        pricingModal.style.display = "block";
+      })
+
+
+
+      openApplicationSettingButton.addEventListener("click", () =>
+      {
+        console.log("Show application settings");
+        mainwindow.loadFile("./settings.html");
+      });
+
+
+      // searchBtn.addEventListener("click", () =>
+      //  {
+
+      //   console.log("URl" + `https://${searchInput.value}`);
+      //   const title = searchInput.value.toString().split(".")[1];
+
+      //   tabGroup.addTab({
+      //      title: title,
+
+      //     src: `http://${searchInput.value}`,
+      //     visible: true,
+      //     active: true,
+          
+      //   });
+      // });
+
+      let tabGroup = new TabGroup({
+        ready: function (tabGroup) {
+          dragula([tabGroup.tabContainer], { direction: "horizontal" });
+        },
+      });
+
+      let tab = tabGroup.addTab({
+        title: "Google",
+        src: "https://www.google.com",
+        icon:"fa fa-google",
+        visible: true,
+        active: true,
+      });
+
+
+      AddTabButton.addEventListener("click", () => {
+        tabGroup.addTab({
+          title: "Google",
+          icon:"fa fa-google",
+          src: "http://google.co.in",
+          visible: true,
+          active: true,
+        });
+      });
+    </script>
+  </body>
+</html>

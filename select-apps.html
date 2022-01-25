@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- !! IMPORTANT !! -->
+    <!-- Content-Security-Policy no longer required. Will show warning in devtools. Can be ignored -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
+    <title>Choose Apps</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script defer>
+    window.jQuery = window.$ = require("jquery");
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <style>
+
+      html {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="align-items-center" style="height: 136px; margin-top: 20px; ">
+      <div>
+        <h1 class="text-center">Upclave</h3>
+        <h4 class="text-center">Life is too short for unorganized tabs.</p>
+      </div>
+   </div>
+    <div class="container-fluid " style="margin-top: 70px;">
+      <h1>Which apps would you like to add?</h1>
+      <div class="row margin-top">
+        <div class="col-sm-3" style="padding: 30px;">
+          <div class="container">
+            <img
+              class="img-thumbnail"
+              style="width: 4em"
+              src="./facebook.png"
+              alt=""
+            />
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="facebookChk"
+                name="facebook"
+                value="facebook"
+                onchange="getValue(this.value)"
+              />
+              <label class="custom-control-label" for="facebookChk">
+                Facebook
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3" style="padding: 30px;" >
+          <div class="container">
+            <img
+              class="img-thumbnail"
+              style="width: 4em"
+              src="./instagram.png"
+              alt=""
+            />
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="instagramChk"
+                name="instagram"
+                value="instagram"
+                onchange="getValue(this.value)"
+              />
+              <label class="custom-control-label" for="instagramChk">
+                Instagram
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3" style="padding: 30px;" >
+          <div class="container">
+            <img
+              class="img-thumbnail"
+              style="width: 4em"
+              src="./whatsapp.png"
+              alt=""
+            />
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="whatsappChk"
+                name="whatsapp"
+                value="whatsapp"
+                onchange="getValue(this.value)"
+              />
+              <label class="custom-control-label" for="whatsappChk">
+                Whatsapp
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3" style="padding: 30px;" >
+          <div class="container">
+            <img
+              class="img-thumbnail"
+              style="width: 4em"
+              src="./asana.png"
+              alt=""
+            />
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="asanaChk"
+                name="asana"
+                value="asana"
+                onchange="getValue(this.value)"
+              />
+              <label class="custom-control-label" for="asanaChk">
+                Asana
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3" style="padding: 30px;">
+          <div class="container">
+            <img
+              class="img-thumbnail"
+              style="width: 4em"
+              src="./slack.png"
+              alt=""
+            />
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="slackChk"
+                name="slack"
+                value="slack"
+                onchange="getValue(this.value)"
+              />
+              <label class="custom-control-label" for="slackChk">
+                Slack
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3" style="padding: 30px;">
+          <div class="container">
+            <img
+              class="img-thumbnail"
+              style="width: 4em"
+              src="./trello.png"
+              alt=""
+            />
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="trelloChk"
+                name="trello"
+                value="trello"
+                onchange="getValue(this.value)"
+              />
+              <label class="custom-control-label" for="trelloChk">
+                Trello
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3" style="padding: 30px;">  <div class="container">
+          <img
+            class="img-thumbnail"
+            style="width: 4em"
+            src="./evernote.png"
+            alt=""
+          />
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              id="evernoteChk"
+              name="evernote"
+              value="evernote"
+              onchange="getValue(this.value)"
+            />
+            <label class="custom-control-label" for="evernoteChk">
+              Evernote
+            </label>
+          </div>
+        </div></div>
+        <div class="col-sm-3" style="padding: 30px;">
+          <div class="container">
+            <img
+              class="img-thumbnail"
+              style="width: 4em"
+              src="./facebook-messenger.png"
+              alt=""
+            />
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="messengerChk"
+                name="messenger"
+                value="messenger"
+                onchange="getValue(this.value)"
+              />
+              <label class="custom-control-label" for="messengerChk">
+                Messenger
+              </label>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="container-fluid" >
+      <button style="background: #161853; color: white;" class="btn btn-lg float-right" id="nextBtn">NEXT</button>
+      <p class="float-left" >Remember, you can choose from 50+ apps later.</p>
+    </div>
+
+    <script>
+      const { remote } = require("electron");
+      const {ipcRenderer} = require('electron');
+
+      let currentWindow = remote.getCurrentWindow();
+
+      let nextButton = document.getElementById("nextBtn");
+
+
+      apps = [];
+
+      nextBtn.addEventListener("click", () => {
+        console.log("Slected Apps Selected");
+        ipcRenderer.send("upclaveWindow", {show: true, apps});
+       // currentWindow.hide();
+      })
+
+      function getValue(value){
+        console.log(value);
+        apps.push({name: value});
+        console.log(apps);
+      }
+    </script>
+  </body>
+</html>

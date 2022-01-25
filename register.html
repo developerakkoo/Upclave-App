@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- !! IMPORTANT !! -->
+  <!-- Content-Security-Policy no longer required. Will show warning in devtools. Can be ignored -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
+  <title>Upclave - Register</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script defer>
+    window.jQuery = window.$ = require("jquery");
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+
+  <style>
+    html {
+      font-family: sans-serif;
+      selection: none;
+    }
+
+ /* Center the loader */
+ #loader {
+position: absolute;
+display: none;
+left: 50%;
+top: 50%;
+z-index: 1;
+width: 100px;
+height: 100px;
+margin: -76px 0 0 -76px;
+border: 16px solid #f3f3f3;
+border-radius: 50%;
+border-top: 16px solid #161853;
+-webkit-animation: spin 2s linear infinite;
+animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+0% { -webkit-transform: rotate(0deg); }
+100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+position: relative;
+-webkit-animation-name: animatebottom;
+-webkit-animation-duration: 1s;
+animation-name: animatebottom;
+animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+from { bottom:-100px; opacity:0 } 
+to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+from{ bottom:-100px; opacity:0 } 
+to{ bottom:0; opacity:1 }
+}
+
+#backdrop {
+position: fixed;
+display: none;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(0,0,0,0.6);
+z-index: 2;
+cursor: pointer;
+}
+#alert-success {
+    display: none;
+}
+
+#alert-danger {
+    display: none;
+}
+  </style>
+  
+</head>
+
+<body>
+
+  <div id="backdrop" ></div>
+  <div id="loader" ></div>
+
+  <div id="alert-success"  class="alert alert-success">
+    <strong>Success!</strong> You have successfully signed In
+  </div>
+
+  <div id="alert-danger" class="alert alert-danger">
+    <strong>Something bad has happened. Please try again later.</strong>!</strong>.
+  </div>
+
+  <!-- <div class="jumbotron-fluid" style="background-color:#2B2E3B; color: white; padding: 20px;">
+        <h1 class="text-center">Upclave</h1>
+    </div> -->
+  <nav class="navbar navbar-expand-sm justify-content-end" style="background-color: #161853;">
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" id="signupBtn" href="#">
+
+          <i class="fas fa-thumbs-up" style="text-decoration: underline; color: white;"></i>
+          Sign In</a>
+      </li>
+
+
+  </nav>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-4" style="background-color:#161853; color: white;">
+        <div class="d-flex  align-items-center" style="height: 436px; margin-top: 140px; ">
+          <div>
+            <h3 class="text-center">Upclave</h3>
+            <h5 class="text-center">We know you!</h3>
+              <br>
+              <p class="text-center">Simply enter your primary Upclave Account to get started.</p>
+              <img class="float-left align-items-end" style="width: 400px; margin-top: 90px;"
+                src="./undraw_login_re_4vu2 (1).svg" alt="" srcset="">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="container-fluid  flex-wrap align-content-center" style="margin-top: 40px; padding: 20px;">
+          <h3>Sign Up for Upclave Account.</h3>
+          <p>Please enter your primary email address.</p>
+          <hr>
+          <form>
+            <div class="form-group" style="padding: 30px;">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" placeholder="you@yourgoogledomain.com" id="emailInput" name="email" >
+
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" placeholder="**********" id="passwordInput" name="password" >
+            </div>
+         
+
+            <hr>
+            <button style="background: #161853; color: white;" type="submit" class="btn  btn-lg float-right"
+              id="registerBtn">NEXT</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<script>
+  const {ipcRenderer} = require('electron');
+const {remote} = require('electron');
+const axios = require("axios");
+
+let mainwindow = remote.getCurrentWindow();
+const signupBtn = document.getElementById("signupBtn");
+
+const backdrop = document.querySelector("#backdrop");
+    const loader = document.querySelector("#loader");
+
+    const alertsuccess = document.querySelector("#alert-success");
+    const alertdanger = document.querySelector("#alert-danger");
+
+let emailInput = document.getElementById("emailInput");
+let passwordInput = document.getElementById("passwordInput");
+
+let registerBtn = document.getElementById("registerBtn");
+
+
+ipcRenderer.on('error', (event, args) => {
+  hideLoader();
+  showAlertDangerDialog();
+})
+
+ipcRenderer.on('userId', (event, args) => {
+  ipcRenderer.send('create-user');
+  hideLoader();
+  showAlertSuccessDialog();
+})
+
+registerBtn.addEventListener("click", () => {
+  console.log("Register successful");
+  showLoader();
+  ipcRenderer.send('register',{email: emailInput.value, password: passwordInput.value});
+})
+
+signupBtn.addEventListener("click", () => {
+      console.log("show login");
+
+
+      remote.getCurrentWindow().loadFile("login.html")
+
+    });
+
+
+
+function showAlertSuccessDialog() {
+      alertsuccess.style.display = "block";
+      setTimeout(() => {
+        alertsuccess.style.display = "none";
+      }, 2000)
+    }
+
+    function showAlertDangerDialog() {
+      alertdanger.style.display = "block";
+
+      setTimeout(() => {
+        alertdanger.style.display = "none";
+      }, 2000)
+    }
+
+    function showLoader() {
+      loader.style.display = "block";
+      backdrop.style.display = "block";
+    }
+
+    function hideLoader() {
+      loader.style.display = "none";
+      backdrop.style.display = "none";
+    }
+</script>
+
+</body>
+
+
+</html>

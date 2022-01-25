@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- !! IMPORTANT !! -->
+    <!-- Content-Security-Policy no longer required. Will show warning in devtools. Can be ignored -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <title>Upclave</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      html { font-family: sans-serif; background: white; color: #9FEAF9; }
+    </style>
+  </head>
+  <body>
+
+    <div style="margin-top: 10vh;" class="container-fluid d-flex justify-content-center" >
+      <img src="./app-logo.png">
+    </div>
+
+    <div class="jumbotron-fluid" style="background: #161853; color: #9FEAF9; margin-top: 180px;">
+     
+      <div class="container-fluid d-flex justify-content-center">
+
+        <button style="background: #161853; color: white; font-size:30px;" id="startButton" class="btn btn-lg text-center ">Get Started</button>
+      </div>
+  
+
+    
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>

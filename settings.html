@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script defer>
+      window.jQuery = window.$ = require("jquery");
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Add icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      p {
+        color: lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left"
+      style="width: 300px"
+      id="mySidebar"
+    >
+      <button
+        class="w3-bar-item w3-button w3-large w3-hide-large"
+        onclick="w3_close()"
+      >
+        Close &times;
+      </button>
+      <button
+        id="goBackHomeButton"
+        style="background-color: #161853; color: white"
+        class="w3-bar-item w3-button w3-large"
+        onclick="w3_close()"
+      >
+        Close &times;
+      </button>
+      <a id="apps-item" href="#" class="w3-bar-item w3-button w3-padding-16 w3-margin-top">
+        <i class="fa fa-th-large"></i> Application
+      </a>
+      <a id="account-item" href="#" class="w3-bar-item w3-button w3-padding-16"
+        ><i class="fa fa-user"></i> Account
+      </a>
+    </div>
+
+    <div
+      class="w3-main"
+      style="
+        margin-left: 300px;
+        background-color: #161853;
+        color: white;
+        height: 100%;">
+
+      <div style="background: #161853">
+        <button class="w3-button w3-xlarge w3-hide-large" onclick="w3_open()">
+          &#9776;
+        </button>
+      </div>
+
+      <div id="app-div"
+        style="height: 100%; background-color: #161853; color: white"
+        class="w3-container w3-padding-24;">
+        <h5 style="margin-top: 50px">Apps</h5>
+        <p>
+          Make upclave your all-in-one productivity hub by adding all of your
+          apps.
+        </p>
+        <hr style="background: rgb(126, 126, 126)" />
+
+        <h5 style="margin-top: 50px">All Apps</h5>
+        <h5 style="margin-top: 20px">Featured Apps</h5>
+        <hr style="background: rgb(126, 126, 126)" />
+        <div class="container-fluid" style="margin-top: 70px">
+          <div class="row margin-top">
+            <div class="col-sm-3" style="padding: 30px">
+              <div  class="container">
+                <img
+                  class="img-thumbnail"
+                  style="width: 4em; border: 5px solid rgb(255, 68, 0);"
+                  src="./facebook.png"
+                  alt=""
+                />
+               
+              </div>
+            </div>
+            <div class="col-sm-3" style="padding: 30px">
+              <div class="container">
+                  <img
+                  class="img-thumbnail"
+                  style="width: 4em"
+                  src="./instagram.png"
+                  alt=""
+                  />
+              </div>
+            </div>
+            <div class="col-sm-3" style="padding: 30px">
+              <div class="container">
+                <img
+                  class="img-thumbnail"
+                  style="width: 4em"
+                  src="./whatsapp.png"
+                  alt=""
+                />
+              
+              </div>
+            </div>
+            <div class="col-sm-3" style="padding: 30px">
+              <div class="container">
+                <img
+                  class="img-thumbnail"
+                  style="width: 4em"
+                  src="./asana.png"
+                  alt=""
+                />
+              
+              </div>
+            </div>
+
+            <div class="col-sm-3" style="padding: 30px">
+              <div class="container">
+                <img
+                  class="img-thumbnail"
+                  style="width: 4em"
+                  src="./slack.png"
+                  alt=""
+                />
+               
+              </div>
+            </div>
+            <div class="col-sm-3" style="padding: 30px">
+              <div class="container">
+                <img
+                  class="img-thumbnail"
+                  style="width: 4em"
+                  src="./trello.png"
+                  alt=""
+                />
+              
+              </div>
+            </div>
+
+            <div class="col-sm-3" style="padding: 30px">
+              <div class="container">
+                <img
+                  class="img-thumbnail"
+                  style="width: 4em"
+                  src="./evernote.png"
+                  alt=""
+                />
+              
+              </div>
+            </div>
+            <div class="col-sm-3" style="padding: 30px">
+              <div class="container">
+                <img
+                  class="img-thumbnail"
+                  style="width: 4em"
+                  src="./facebook-messenger.png"
+                  alt=""
+                />
+             
+              </div>
+            </div>
+            <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div> <div class="col-sm-3" style="padding: 30px">
+                <div class="container">
+                  <img
+                    class="img-thumbnail"
+                    style="width: 4em"
+                    src="./facebook-messenger.png"
+                    alt=""
+                  />
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="messengerChk"
+                      name="example"
+                      value="customEx"
+                    />
+                    <label class="custom-control-label" for="messengerChk">
+                      Messenger
+                    </label>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="account-div"  style="display: none;height: 100%; background-color: #161853; color: white;"
+      class="w3-container w3-padding-24;" >
+      <h5 style="margin-top: 50px">Account</h5>
+      <p>
+       Update your account preferences and never miss a thing.
+      </p>
+      <hr style="background: rgb(126, 126, 126)" />
+      <div class="w3-container">
+        <ul class="w3-ul w3-card-4 w3-margin-top">
+          <li class="w3-bar">
+            <span class="w3-bar-item  w3-white w3-xlarge w3-right">×</span>
+            <img src="profile.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+            <div class="w3-bar-item w3-text-white">
+              <span class="w3-large">Mike</span><br>
+              <span>Mike@gmail.com</span><br>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      </div>
+    </div>
+
+    <script>
+         const {ipcRenderer} = require('electron');
+      const { webContents } = require('electron')
+
+      const {remote} = require('electron');
+      
+      let mainwindow = remote.getCurrentWindow();
+
+        let appsDiv = document.querySelector("#app-div");
+        let accountDiv = document.querySelector("#account-div");
+
+      let goBackHomeButton = document.querySelector("#goBackHomeButton");
+    let accountButton = document.querySelector("#account-item");
+    let appsButton = document.querySelector("#apps-item");
+
+    accountButton.addEventListener("click",() => {
+        console.log("accountButton clicked");
+        appsDiv.style.display = "none";
+        accountDiv.style.display = "block";
+        
+      
+
+    })
+
+    appsButton.addEventListener("click",() => {
+        console.log("apps button clicked");
+        appsDiv.style.display = "block";
+        accountDiv.style.display = "none";
+
+       
+        
+    })
+
+
+      goBackHomeButton.addEventListener("click", () => {
+        console.log("Go back home button");
+        mainwindow.loadFile("./upclave.html");
+
+      });
+
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

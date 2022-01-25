@@ -1,0 +1,41 @@
+{
+  "name": "upclave-app",
+  "version": "1.0.0",
+  "description": "Master Electron Course Code",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --exec electron .",
+    "reset": "git reset --hard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackacademytv/master-electron.git"
+  },
+  "keywords": [
+    "Electron",
+    "Master Electron",
+    "demo"
+  ],
+  "author": "GitHub, Stackacademytv",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^9.0.0",
+    "nodemon": "^2.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bootstrap": "^4.6.1",
+    "chrome-tabs": "^5.4.0",
+    "dragula": "^3.7.3",
+    "electron-store": "^8.0.1",
+    "electron-tabs": "^0.15.0",
+    "firebase": "^9.6.3",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1"
+  },
+  "bugs": {
+    "url": "https://github.com/stackacademytv/master-electron/issues"
+  },
+  "homepage": "https://github.com/stackacademytv/master-electron#readme"
+}

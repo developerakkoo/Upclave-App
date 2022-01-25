@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- !! IMPORTANT !! -->
+    <!-- Content-Security-Policy no longer required. Will show warning in devtools. Can be ignored -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
+    <title>Hello World!</title>
+    <style>
+      html { font-family: sans-serif; background: #2B2E3B; color: #9FEAF9; }
+    </style>
+  </head>
+  <body>
+
+    <h1>Hello Electron!</h1>
+    <p>Build cross-platform desktop apps with JavaScript, HTML, and CSS</p>
+
+    <br><button onclick="makeUpper()">Make clipboard uppercase</button>
+    <br><button onclick="showImage()">Show clipboard image</button>
+
+    <br><img src="" id="cbImage">
+
+    <script>
+
+      const { clipboard } = require('electron')
+
+      console.log(clipboard.readText())
+
+      const showImage = e => {
+        let image = clipboard.readImage()
+        document.getElementById('cbImage').src = image.toDataURL()
+      }
+
+      const makeUpper = e => {
+        let cbText = clipboard.readText()
+        clipboard.writeText( cbText.toUpperCase() )
+      }
+
+    </script>
+  </body>
+</html>

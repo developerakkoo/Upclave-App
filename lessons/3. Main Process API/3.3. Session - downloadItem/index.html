@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- !! IMPORTANT !! -->
+    <!-- Content-Security-Policy no longer required. Will show warning in devtools. Can be ignored -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> -->
+    <title>Hello World!</title>
+    <style>
+      html { font-family: sans-serif; background: #2B2E3B; color: #9FEAF9; }
+    </style>
+  </head>
+  <body>
+
+    <h2><a href="https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_5MG.mp3" download>Download Image</a></h2>
+    <progress value="0" max="100" id="progress"></progress>
+
+    <script>
+      window.progress = document.getElementById('progress')
+    </script>
+
+  </body>
+</html>
